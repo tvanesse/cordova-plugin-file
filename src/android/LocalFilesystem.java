@@ -276,11 +276,8 @@ public class LocalFilesystem extends Filesystem {
 
         if (move) {
             srcFs.removeFileAtLocalURL(srcURL);
-            broadcastNewFile(Uri.fromFile(destFile));
         }
-        else {
-          broadcastNewFile(srcFs.toNativeUri(srcURL));
-        }
+        broadcastNewFile(Uri.fromFile(destFile));
     }
 
     private void copyDirectory(Filesystem srcFs, LocalFilesystemURL srcURL, File dstDir, boolean move) throws IOException, NoModificationAllowedException, InvalidModificationException, FileExistsException {
