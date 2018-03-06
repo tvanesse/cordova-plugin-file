@@ -276,6 +276,10 @@ public class LocalFilesystem extends Filesystem {
 
         if (move) {
             srcFs.removeFileAtLocalURL(srcURL);
+            broadcastNewFile(Uri.fromFile(destFile));
+        }
+        else {
+          broadcastNewFile(srcFs.toNativeUri(srcURL));
         }
     }
 
